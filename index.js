@@ -1,6 +1,9 @@
 const express = require("express")
-const userRouter = require('./user')
+const userRouter = require('./router/user')
 const app = express()
+
+app.use(express.json()) // for parsing application json
+app.use(express.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
 
 app.get("/", function(request, response) {
     const kelas = {
